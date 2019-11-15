@@ -21,7 +21,7 @@ $(ENV_DIR):
 	virtualenv $(ENV_DIR)
 
 build_reqs: env
-	$(IN_ENV) pip install sphinx tox coverage
+	$(IN_ENV) pip install sphinx tox
 
 build: build_reqs
 	$(IN_ENV) pip install --editable .
