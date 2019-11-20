@@ -1,0 +1,13 @@
+.idea
+.coverage
+coverage.xml
+.tox
+.pytest_cache
+docs/build/
+test_results.xml
+*.pyc
+*.pyo
+dist/*
+*egg-info*
+.vagrant
+.env
