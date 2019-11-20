@@ -1,5 +1,17 @@
 language: python
+dist: xenial
 python:
-  - "3.6"
+  - '3.6'
+
 script:
   - make test
+
+deploy:
+  provider: pypi
+  user: "__token__"
+  password:
+    secure: DFKPhGIT+peo35KLgUZvLy2ASjhH2jkyx1Oy3fYIwZpTIGkq3fEzuzA3spSF0DF/xEX+aakCq7SLqj6dRvRqYDtyuMtBbod1dC7cjAbsGOhtu4kOwlFSCnYuxyZmxklF/41Qrok2I4+4OiOIFOtcOi28yOnQOrQBSRvFBNFA6BO2mNWUGFFCEbURXEJD2w+Nm7tdx4kU2vU2PuH6TlDtbfxUCfYU2Y2Lchx28k4pJV4MnP/oV150fmBlvukPxKEvlu76jnvI7IldETcDhIyBWRVzp+xKZlRPxwoqSYUA2A86VB/ilQXyn4esjuzABUZrvnDsuf/Ojb+R5GaupM6t6oXiqxS7vlC227j8tnZ213YW7rfe/60EjmR2KdS92bU190saG7I6nHczTzXfGTUkaIyWiEJv3AgldzRL7l5AOcWviJob2GSLqFGAjIXxUpxAlxk4yn5s998KfN//RplLRA+TvnvZEL0XWNfTCKf1s1b0+8YXQLqKwEIPwjeQJZNhkl4uFEEoUgg6hTcQpYsy8X9M0TZdQolNChkYUO+uYrCrYEtJDNn/dg5iQ/BZT6IWbu5A8ibq0DSVbvgAjcU+CdfrUe5z7A63zY4cG9kbugc1OLdRn+X2ovPPsrUxPJgf+R+UXlqoDtH3hBP57jVVZ1tfLwbEEJnQoDMsC3mi3Xc=
+  skip_existing: true
+  on:
+    tags: true
+    branch: support/1.0
