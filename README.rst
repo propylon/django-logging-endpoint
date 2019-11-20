@@ -3,6 +3,9 @@ django-logging-endpoint
 
 > Provide an endpoint to receive logs and push them to a configurable django logger
 
+.. image:: https://travis-ci.org/propylon/django-logging-endpoint.svg?branch=master
+    :target: https://travis-ci.org/propylon/django-logging-endpoint
+
 Usage
 -----
 
