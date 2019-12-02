@@ -52,7 +52,7 @@ def json_handler(log_data):
     msg = '-'.join(filter(None, (
         log_data.get('timestamp', ''),
         logger,
-        log_data.get('message', None)
+        str(log_data.get('message', None))
     )))
     args = tuple()
     kwargs = dict()

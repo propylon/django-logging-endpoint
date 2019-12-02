@@ -16,7 +16,6 @@ import sys
 import os
 import datetime
 
-from herodotus.describe import rpm
 import sphinx_rtd_theme
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -236,7 +235,7 @@ latex_logo = "_static/propylon/PropylonSpace.png"
 #latex_show_urls = False
 
 # Documents to append as an appendix to all manuals.
-latex_appendices = ['topics/glossary',]
+# latex_appendices = ['topics/glossary',]
 
 # If false, no module index is generated.
 #latex_domain_indices = True
