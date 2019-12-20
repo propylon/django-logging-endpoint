@@ -21,13 +21,17 @@ Installation
 
 3. Set the logger name, if you want to send the messages to a specific one::
 
-    LOGGING_ENDPOINT_LOGGER = 'ApiLogger'
+    LOGGING_ENDPOINT_LOGGER = 'LoggingEndpoint'
 
-4. Add the url to your urls.py::
+4. Set the log message handler function, if you want to customize the parsing of your log messages::
+
+    LOGGING_ENDPOINT_MESSAGE_HANDLER = 'logging_endpoint.message_handler.default_handler'
+
+5. Add the url to your urls.py::
 
     from django.conf.urls import include
 
-    urlpatterns += url(r'logs^', include('logging_endpoint.urls'))
+    urlpatterns += url(r'^logs', include('logging_endpoint.urls'))
 
 Endpoints
 *********
