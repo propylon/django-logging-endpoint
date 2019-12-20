@@ -15,7 +15,7 @@ INSTALL_REQUIRES = ['setuptools', 'Django>=1.11', 'six']
 
 setup(
     name='django-logging-endpoint',
-    version='1.0.0',
+    version='1.0.2',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     include_package_data=True,
@@ -23,7 +23,7 @@ setup(
     description='Provide an endpoint to receive logs and push them to a '
         'configurable django logger',
     long_description=README,
-    url='',
+    url='https://github.com/propylon/django-logging-endpoint',
     author='Propylon',
     author_email='opensource@propylon.com',
     classifiers=[
