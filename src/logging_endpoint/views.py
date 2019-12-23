@@ -22,6 +22,8 @@ import logging
 
 from django.http import HttpResponse
 from django.utils.module_loading import import_string
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
 
 import six
 from logging_endpoint.settings import LOGGER, MESSAGE_HANDLER
@@ -36,6 +38,8 @@ except ImportError:
     JSONDecodeError = ValueError
 
 
+@csrf_exempt
+@require_POST
 def get_messages(request):
     """Return the messages in the given request.
 
