@@ -28,18 +28,16 @@ from django.views.decorators.http import require_POST
 import six
 from logging_endpoint.settings import LOGGER, MESSAGE_HANDLER
 
-logger = logging.getLogger(LOGGER)
 if isinstance(MESSAGE_HANDLER, six.string_types):
     MESSAGE_HANDLER = import_string(MESSAGE_HANDLER)
-
 try:
     from json.decoder import JSONDecodeError
 except ImportError:
     JSONDecodeError = ValueError
 
+logger = logging.getLogger(LOGGER)
 
-@csrf_exempt
-@require_POST
+
 def get_messages(request):
     """Return the messages in the given request.
 
@@ -56,10 +54,12 @@ def get_messages(request):
         return [request.body]
 
 
+@csrf_exempt
+@require_POST
 def logging_view(request):
     """Send the received logs to the logger."""
     for message in get_messages(request):
-        msg_logger, level, msg, args, kwargs = MESSAGE_HANDLER(message)
+        msg_logger, level, msg, args, kwargs = MESSAGE_HANDLER(message=message, request=request)
         if not msg_logger:
             msg_logger = logger
 

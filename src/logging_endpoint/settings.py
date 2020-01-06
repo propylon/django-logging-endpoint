@@ -17,6 +17,12 @@ limitations under the License.
 """
 from django.conf import settings
 
+DECOMPOSE_JSON_LISTS = getattr(
+    settings,
+    'LOGGING_ENDPOINT_DECOMPOSE_JSON_LISTS',
+    True
+)
+
 LOGGER = getattr(settings, 'LOGGING_ENDPOINT_LOGGER', 'LoggingEndpoint')
 
 MESSAGE_HANDLER = getattr(
@@ -29,10 +35,4 @@ OVERWRITE_LOGGER = getattr(
     settings,
     'LOGGING_ENDPOINT_OVERWRITE_LOGGER',
     False
-)
-
-DECOMPOSE_JSON_LISTS = getattr(
-    settings,
-    'LOGGING_ENDPOINT_DECOMPOSE_JSON_LISTS',
-    True
 )
