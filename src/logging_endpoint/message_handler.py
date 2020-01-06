@@ -20,14 +20,15 @@ from logging import INFO, getLevelName
 from logging_endpoint.settings import OVERWRITE_LOGGER
 
 
-def default_handler(log_data):
+def default_handler(**kwargs):
     """Return the message as is as level INFO on the default logger."""
+    log_data = kwargs.get('message')
     if isinstance(log_data, bytes):
         log_data = log_data.decode()
     return None, INFO, str(log_data), tuple(), dict()
 
 
-def json_handler(log_data):
+def json_handler(**kwargs):
     """Return the message based on a json dictionary.
 
     Example input:
@@ -47,6 +48,7 @@ def json_handler(log_data):
 
     -> ERROR - 2020-01-01T12:00Z - user interaction - my log message
     """
+    log_data = kwargs.get('message')
     logger = log_data.get('logger', None)
     level = getLevelName(log_data.get('loglevel', 'INFO').upper())
     msg = '-'.join(filter(None, (

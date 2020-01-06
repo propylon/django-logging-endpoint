@@ -9,12 +9,13 @@ end_of_line = lf
 insert_final_newline = true
 
 [**.py]
-indent_style = space
+default_section = THIRDPARTY
 indent_size = 4
+indent_style = space
+known_django = django
+known_first_party = django-logging-endpoint
+max_line_length = 119
 multi_line_output = 3
 not_skip = __init__.py
-default_section = THIRDPARTY
-known_first_party = django-logging-endpoint
-known_django = django
 sections = FUTURE,STDLIB,DJANGO,THIRDPARTY,FIRSTPARTY,LOCALFOLDER
 use_parentheses = True
