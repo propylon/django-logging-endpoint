@@ -19,16 +19,21 @@ settings.
 .. py:attribute:: MESSAGE_HANDLER
 
       Function to process the incoming message by the application.
-      Takes the original function and should return a tuple of
+      Takes the original message and request under these names as
+      keywords and should return a tuple of
+
       * logger name (or None)
       * loglevel
       * log message
       * args for the log call
       * kwargs for the log call
 
-      def default_handler(log_data):
-          """Return the message as is as level INFO on the default logger."""
-          return None, INFO, log_data.decode(), tuple(), dict()
+      ::
+      
+         def default_handler(**kwargs):
+             """Return the message as is as level INFO on the default logger."""
+             log_data = kwargs.get('message')
+             return None, INFO, log_data.decode(), tuple(), dict()
 
       Default
          :code:`logging_endpoint.message_handler.default_handler`
