@@ -15,7 +15,7 @@ INSTALL_REQUIRES = ['setuptools', 'Django>=1.11', 'six']
 
 setup(
     name='django-logging-endpoint',
-    version='1.0.3',
+    version='1.0.4',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     include_package_data=True,
